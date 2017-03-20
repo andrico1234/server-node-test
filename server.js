@@ -1,24 +1,27 @@
 'use strict';
-
-
 const express = require('express');
+const hbs = require('hbs');
 
 var app = express();
 
+app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
-
 app.get('/', (req, res) => {
 
-    res.send({
+    res.render('home.hbs', {
 
-        name: 'Andrew',
-        likes: ['nunchucks', 'computer hacking']
-    })
+        currentYear: new Date().getFullYear(),
+        title: 'Welcome',
+        welcomeMessage: 'Hello, this is a welcome message. Enjoy the express.js site'
+    });
 });
 
 app.get('/about', (req, res) => {
 
-    res.send('About page');
+    res.render('about.hbs', {
+        currentYear: new Date().getFullYear(),
+        title: 'About Page'
+    });
 });
 
 app.get('/bad', (req, res) => {
