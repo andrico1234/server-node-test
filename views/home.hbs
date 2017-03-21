@@ -5,11 +5,10 @@
         <title>Some Website</title>
     </head>
     <body>
-        <h1>{{title}}</h1>
-        <p>{{welcomeMessage}}</p>
-    </body>
+        {{> header}}
 
-    <footer>
-        <p>Copyright {{currentYear}}</p>
-    </footer>
+        <p>{{screamIt welcomeMessage}}</p>
+
+        {{> footer}}
+    </body>
 </html>
